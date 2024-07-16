@@ -1,4 +1,6 @@
 var express = require("express");
+var helmet = require("helmet");
+var cors = require("cors");
 var venom = require("venom-bot");
 
 venom
@@ -24,6 +26,19 @@ venom
 function start(client) {
   var app = express();
 
+  app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'"], // Permite scripts inline
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", "data:"],
+        connectSrc: ["'self'", "http://localhost:4000"]
+      }
+    }
+  }));
+
+  app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
@@ -39,7 +54,6 @@ function start(client) {
   app.post("/api/message", async (req, res, next) => {
     const chatid = req.body.number;
 
-    // Aqui, verifique se o chatid já possui o sufixo @g.us
     const recipient = chatid.endsWith('@g.us') ? chatid : chatid + '@g.us';
 
     try {
@@ -52,13 +66,11 @@ function start(client) {
     }
   });
 
-  // Nova rota para obter grupos
   app.get("/api/groups", async (req, res, next) => {
     try {
       const chats = await client.getAllChats();
       const groups = chats.filter(chat => chat.isGroup);
-      
-      // Mapear os grupos para retornar id e nome
+
       const groupDetails = groups.map(group => ({
         id: group.id._serialized,
         name: group.name
