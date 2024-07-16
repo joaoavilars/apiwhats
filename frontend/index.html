@@ -46,4 +46,64 @@
             border-collapse: collapse;
         }
         th, td {
-            padding: 12px
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Grupos</h1>
+        <button class="btn" onclick="fetchGroups()">Carregar Grupos</button>
+        <table id="groupTable">
+            <thead>
+                <tr>
+                    <th>ID do Grupo</th>
+                    <th>Nome do Grupo</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="error" class="error"></div>
+    </div>
+    <script>
+        async function fetchGroups() {
+            const errorDiv = document.getElementById('error');
+            errorDiv.textContent = ''; // Clear any previous errors
+
+            try {
+                const response = await fetch('http://localhost:4000/api/groups');
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar os grupos: ' + response.statusText);
+                }
+
+                const groups = await response.json();
+
+                const tableBody = document.querySelector('#groupTable tbody');
+                tableBody.innerHTML = ''; // Limpa a tabela antes de adicionar os novos dados
+
+                groups.forEach(group => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${group.id}</td>
+                        <td>${group.name || '(sem nome)'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar os grupos:', error);
+                errorDiv.textContent = 'Erro ao buscar os grupos: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
