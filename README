@@ -1,0 +1,31 @@
+* Instalar Dependencias:
+
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install -y nodejs npm
+
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+
+sudo npm install -g venom-bot express
+
+
+* Configurar Projeto:
+
+mkdir ~/whatsapp-api
+cd ~/whatsapp-api
+
+npm init -y
+
+npm install venom-bot express
+
+cp /origem/app.js .
+
+
+* Executar aplicação:
+
+nohup node api.js &
+
