@@ -9,23 +9,28 @@ sudo apt install -y nodejs npm
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
+mkdir ~/whatsapp-api
+cd ~/whatsapp-api
+
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install 18
+nvm use 18
 
 sudo npm install -g venom-bot express cors helmet
 
 
 * Configurar Projeto:
 
-mkdir ~/whatsapp-api
-cd ~/whatsapp-api
 
 npm init -y
 
-npm install venom-bot express
+npm install 
 
-cp /origem/app.js .
+npm audit fix --force
 
 
 * Executar aplicação:
 
-nohup node api.js &
+nohup node ./api.js &
 
