@@ -16,6 +16,8 @@ cd ~/whatsapp-api
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install 18
 nvm use 18
+nvm alias default 18.20.4
+
 
 sudo npm install -g venom-bot express cors helmet
 
@@ -34,3 +36,64 @@ npm audit fix --force
 
 nohup node ./api.js &
 
+* Criar serviços:
+
+para a api:
+
+sudo nano /etc/systemd/system/whats-api.service
+
+Incluir no arquivo .service:
+
+[Unit]
+Description=Whatsapp API Node.js Service
+After=network.target
+
+[Service]
+ExecStart=/home/'seu usuario'/.nvm/versions/node/v18.20.4/bin/node /apiwhats/api/app.js
+WorkingDirectory=/apiwhats/api
+Restart=always
+User='seu usuario'
+Environment=NODE_ENV=production
+Environment=PATH=/home/'seu usuario'/.nvm/versions/node/v18.20.4/bin:/usr/local/bin:/usr/bin
+
+StandardOutput=append:/var/log/whats-api.log
+StandardError=append:/var/log/whats-api.log
+SyslogIdentifier=WhatsAPI
+
+
+[Install]
+WantedBy=multi-user.target
+-----------------------------------------------------------------------------
+
+Para o serviço do frontend:
+
+sudo nano /etc/systemd/system/whats-api-frontend.service
+
+Incluir no arquivo .service:
+[Unit]
+Description=Whatsapp API Frontend HTTP Server
+After=network.target
+
+[Service]
+ExecStart=/home/'seu usuario'/.nvm/versions/node/v18.20.4/bin/http-server /apiwhats/frontend/
+WorkingDirectory=/apiwhats/frontend
+Restart=always
+User='seu usuario'
+Environment=PATH=/home/'seu usuario'/.nvm/versions/node/v18.20.4/bin:/usr/local/bin:/usr/bin
+
+StandardOutput=append:/var/log/whats-api-frontend.log
+StandardError=append:/var/log/whats-api-frontend.log
+SyslogIdentifier=WhatsAPI-Frontend
+
+
+[Install]
+WantedBy=multi-user.target
+
+------------------------------------------------------------------------------------
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable whats-api.service
+sudo systemctl enable whats-api-frontend.service
+sudo systemctl start whats-api
+sudo systemctl start whats-api-frontend
