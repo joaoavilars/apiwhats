@@ -81,7 +81,7 @@
             errorDiv.textContent = ''; // Clear any previous errors
 
             try {
-                const response = await fetch('http://localhost:4000/api/groups');
+                const response = await fetch('http://localhost:4000/api/groups'); // <<<<------- SUBSTITUIR LOCALHOST PELO IP DO SERVIDOR, NÃO PODE SER LOCALHOST EM HIPOSTE NENHUMA
                 if (!response.ok) {
                     throw new Error('Erro ao buscar os grupos: ' + response.statusText);
                 }
