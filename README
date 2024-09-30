@@ -20,7 +20,7 @@ cd ~/whatsapp-api
 
 npm init -y
 
-npm install venom-bot express
+npm install venom-bot express cors helmet
 
 cp /origem/app.js .
 
