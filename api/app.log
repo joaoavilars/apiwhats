@@ -162,66 +162,8 @@ Session name:  API-ZAP
 - The file "SingletonLock" was not found
 - Page successfully accessed
 - waiting for introduction
-- [instance: API-ZAP]: Waiting for QRCode Scan...
-Status Session:  notLogged
-Session name:  API-ZAP
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-█ ▄▄▄▄▄ █▄ ▄██   ███▄█▄█▄▄ ▀▄▄▄ ▀▀ ▀█ ▄▀▀ ▄ ▄█ ▄ ██ ▄▄▄▄▄ █
-█ █   █ █ ▄▄ █▀███▀▀▄█▄▄ ▀ ██▄██ █ ▄▀ ▀▄▄█▀ ▀▄▀▄ ██ █   █ █
-█ █▄▄▄█ █▄ ▀ ▄▀█▀▀▀█ ▀▄  █▀ ▄▄▄ ▄▄ ▀ ▀ ▄▀  ▀▄▀▄▀▄██ █▄▄▄█ █
-█▄▄▄▄▄▄▄█▄▀ █ ▀ █▄▀ ▀▄▀▄▀▄█ █▄█ ▀ ▀ █ █▄█▄█▄▀▄▀▄█ █▄▄▄▄▄▄▄█
-█  ▄▄▀█▄▀ ▄▄▄▄████▄█▀▄   ▀█▄▄▄   █ ▄▀█ ▄   ▀▀█▀▄ ▀ ██ ▄ █ █
-██▀▀▀█ ▄▀█▀▄█▄ ▀▀▄ ██ ▄▄▄▄▄▄ █ ▀█ ▀▄ █▀██▀▄ ▀█ ▄▀▄█▀ ▄ ▄▄ █
-█ ▀    ▄ ▀▀▀▀ ▄ █▄█▄▀▀█▄ ██▄▀██▀ █▀█▄▄ ▀█▀█▄▄▀▄▄█▄▀▀▀▀█▄▀▀█
-██ ▀█ █▄ ▄ ██▄▀  ▄  ▄▀▄▀▀  ▄▀███  ▄▄█▀▀ ▀ █ ▀▀▄█  ▄█▄█▀ █▀█
-█ ▄▀ ██▄ ▀▄▄▄█ ▄ ▀██▄█▄█▀█▀▄▄▄█▄█ █▀███▄█▀▀█ ▄▀▀▀▄█▄ ▀▄ ▄ █
-█▄██▄█▄▄▄ ▀▄ ▄▀▀▀ ▀██▀▀███ ▀▀ ██▄▀▀▄ ▄▀█▀▀▀ █▄  ▀██▄█▀█▄ ██
-█▄▀  ▀█▄▀▀▀ ▀▄ ██  ████ ▀█ ▀▄▄ ▀▀▀██▄█ ▄▀▄ ▀▄▀█▄▄  ▄  ▀▀ ▀█
-█ █▀▄▄▀▄█▄▄ █▄▄ ▀▄▀▀ ▄█▄  █▀ ▀█▄ ▄ ▄▄▀▀▀ ▄█▀▄██▀█ █▀▄▄▀▄█ █
-█ ▀ ▀▄▄▄▀▀▀▄██▀▀ █▄▄█ █▀ ███████▄▄▄█▄   ██▄█▄▀ █ ██  █▀▄ ▄█
-█▄▄▄▄ ▄▄▄ ▀█▄  ▀█▄▄▄▀▀█▄█▄▄ ▄▄▄ █  █ ███  ▀ ██▄█▄ ▄▄▄ ▀▀▀▀█
-█▀▄█▄ █▄█  █▄▄ █  █▄██▀▀▀██ █▄█ █▄▀  ▀▄▄ █▀▄▄▄ ▀█ █▄█ ▄ ▀ █
-█████  ▄  ▄ ▄ ▄  ▄▀█ ▄██▄▄▄   ▄▄ ▄▀▀▄▀▄█▀▀▀▄▀█     ▄ ▄▄▄ ██
-█▄ █▀▀ ▄▀▀▀▄ ▀▄███▄█▀█▄  ▀▄▀▄█▀▀▀█ ▄▀▀ ▄▀▄  ▄▀▄▄▀▄ ▄███▄  █
-█ ▀█▀▄▄▄▀▄  ▀█▄█▄ █▀ ▄█ █ ▄▀▄█ ██ █ ▄ █ ▄▀ █ ▄▄▄    ▀▀█▄ ▄█
-█▄▄█▀█▄▄▄█▀  ▄█▄██▄▄▀███ ▄▄ ██▄▀█▀ ▄ ▄  ▀▀██▄█▀█▀▄▄▀ █ ▀▄██
-█ ██ ▀▀▄  ▄▀█▀█▀ ▄██  █ ▄▀█▄ ▄▄█▀█▀▄▄▀▀▄▀▄▄███▀▄▀█ ▀▀▀  █▄█
-█  ██▀ ▄▄▄ ▄█ ▄▄▀▀ ▀ █▄█ █▀  ▀███▄▄▀▀▀▄▄▄█▀▄ ▄ ▀ █▄▀▀ ▄ █ █
-█▄ ▄ ▄█▄ ▀ ▀ ▀  █ █▄▄██  ▀▀██▀  █▀▄▀ ▄█▄█▀▀█▄     ▄▀ █▄██▀█
-█▄█▄▄▄▄▄▀█▄█▄ ▀▄▄▄▀▀▄▄ █▄ █▄██▀ █▀██▄███▄   ▀▀▄███▀▀▄▄█▄█ █
-█ ▀ ▀▀▄▄ ▀▄▀▄  █ ▄█▄ ██▀▄▀ ██▄ ▀█▀ ▄██ ▀ ▄▄  ▄▄█ ▀▄ ██▀█▀ █
-███████▄▄ ▀▄▄▀▀▄ ▄  ▀ ▀▀▀█▄ ▄▄▄ ▀█ █▄▄▀▀ ▀▄▄▄▀ ██ ▄▄▄ ▀▄█ █
-█ ▄▄▄▄▄ ███▄█▄▀█ ▄█▀▄▀ █ ██ █▄█ ████ █ ▄▄███▀█ ▀▀ █▄█ ▀ █▀█
-█ █   █ █▀  ▀▄▀▀▀██▀ ▄ ▀ ▀  ▄      ▀▄▀▀▄ ███▄▄  ▀  ▄▄▄▀█ ▄█
-█ █▄▄▄█ █  ▄▀▄██  ▀▄▄▀▀▄█▀██▀▀█▀▄▀▀▀█ ▄▄▀▀██▄▀▄▄ ▄▀ ██▄██▀█
-█▄▄▄▄▄▄▄█▄▄▄▄▄▄███▄█▄█▄▄█▄███████▄█████▄▄▄▄▄██▄███▄▄▄██▄███
-
-QR Code gerado (base64): data:image/png;base64,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
-Recebendo solicitação:  {}
-Recebendo solicitação:  { number: '5551992035678', message: '*teste*\nteste' }
-- Help Keep This Project Going! Know more: https://github.com/orkestral/venom/blob/master/docs/getting-started/donate.md
-- Node.js version verified successfully!
-- headless option is active, browser hidden
-- Executable path browser: /usr/bin/google-chrome-stable
-- Platform: linux
-- Browser Version: 129.0.6668.70
-- Path Stored "SingletonLock": /home/joao/Projetos/node/apiwhats/api/tokens/API-ZAP/SingletonLock
-- The file "SingletonLock" was not found
-- Page successfully accessed
-- waiting for introduction
-- [instance: API-ZAP]: Checking QRCode status...
-- Help Keep This Project Going! Know more: https://github.com/orkestral/venom/blob/master/docs/getting-started/donate.md
-- Node.js version verified successfully!
-- headless option is active, browser hidden
-- Executable path browser: /usr/bin/google-chrome-stable
-- Platform: linux
-- Browser Version: 129.0.6668.70
-- Path Stored "SingletonLock": /home/joao/Projetos/node/apiwhats/api/tokens/API-ZAP/SingletonLock
-- The file "SingletonLock" was not found
-- Page successfully accessed
-- waiting for introduction
-- [instance: API-ZAP]: QRCode Success
-Status Session:  qrReadSuccess
+- [instance: API-ZAP]: Authenticated
+Status Session:  isLogged
 Session name:  API-ZAP
 - Help Keep This Project Going! Know more: https://github.com/orkestral/venom/blob/master/docs/getting-started/donate.md
 - Node.js version verified successfully!
@@ -244,7 +186,44 @@ Session name:  API-ZAP
 - The file "SingletonLock" was not found
 - Page successfully accessed
 - waiting for introduction
+- [instance: API-ZAP]: Checking phone is connected...
+- opening main page...
+- Help Keep This Project Going! Know more: https://github.com/orkestral/venom/blob/master/docs/getting-started/donate.md
+- Node.js version verified successfully!
+- headless option is active, browser hidden
+- Executable path browser: /usr/bin/google-chrome-stable
+- Platform: linux
+- Browser Version: 129.0.6668.70
+- Path Stored "SingletonLock": /home/joao/Projetos/node/apiwhats/api/tokens/API-ZAP/SingletonLock
+- The file "SingletonLock" was not found
+- Page successfully accessed
+- waiting for introduction
+- [instance: API-ZAP]: Checking phone is connected...
+- Successfully main page!
+- Help Keep This Project Going! Know more: https://github.com/orkestral/venom/blob/master/docs/getting-started/donate.md
+- Node.js version verified successfully!
+- headless option is active, browser hidden
+- Executable path browser: /usr/bin/google-chrome-stable
+- Platform: linux
+- Browser Version: 129.0.6668.70
+- Path Stored "SingletonLock": /home/joao/Projetos/node/apiwhats/api/tokens/API-ZAP/SingletonLock
+- The file "SingletonLock" was not found
+- Page successfully accessed
+- Successfully connected!
+- [instance: API-ZAP]: Checking phone is connected...
+- Successfully main page!
+- Help Keep This Project Going! Know more: https://github.com/orkestral/venom/blob/master/docs/getting-started/donate.md
+- Node.js version verified successfully!
+- headless option is active, browser hidden
+- Executable path browser: /usr/bin/google-chrome-stable
+- Platform: linux
+- Browser Version: 129.0.6668.70
+- Path Stored "SingletonLock": /home/joao/Projetos/node/apiwhats/api/tokens/API-ZAP/SingletonLock
+- The file "SingletonLock" was not found
+- Page successfully accessed
+- Successfully connected!
 - [instance: API-ZAP]: Connected
+- Successfully main page!
 Status Session:  waitForLogin
 Session name:  API-ZAP
 Status Session:  waitChat
@@ -260,11 +239,33 @@ Session name:  API-ZAP
 - Page successfully accessed
 - Successfully connected!
 - [instance: API-ZAP]: Connected
+- Successfully main page!
 Status Session:  successChat
 Session name:  API-ZAP
-Recebendo solicitação:  { number: '5551992035678', message: '*teste*\nteste' }
-Enviando mensagem para: 5551992035678@g.us
 Recebendo solicitação:  {}
 Recebendo solicitação:  {}
-Recebendo solicitação:  { number: '5551992035678', message: '*teste*\nteste 2' }
-Enviando mensagem para: 5551992035678@g.us
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
+Recebendo solicitação:  {}
