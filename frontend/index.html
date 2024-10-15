@@ -197,6 +197,8 @@
             overflow-x: auto;
         }
     </style>
+    <script src="config.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -274,7 +276,7 @@
                 </ol>
                 <h4>Via Requisição POST:</h4>
                 <p>Faça uma requisição POST para o endpoint:</p>
-                <pre><code>POST http://192.168.10.32:4000/api/message</code></pre>
+                <pre><code>POST ${apiBaseUrl}/api/message</code></pre>
                 <p>Com o corpo da requisição em formato JSON:</p>
                 <pre><code>{
   "number": "559999999999",
@@ -290,7 +292,7 @@
                 </ol>
                 <h4>Via Requisição GET:</h4>
                 <p>Faça uma requisição GET para o endpoint:</p>
-                <pre><code>GET http://192.168.10.32:4000/api/groups</code></pre>
+                <pre><code>GET ${apiBaseUrl}/api/groups</code></pre>
 
                 <h3>3. Renovar Token</h3>
                 <h4>Via Interface Gráfica:</h4>
@@ -301,7 +303,7 @@
                 </ol>
                 <h4>Via Requisição POST:</h4>
                 <p>Faça uma requisição POST para o endpoint:</p>
-                <pre><code>POST http://192.168.10.32:4000/api/renew-token</code></pre>
+                <pre><code>POST ${apiBaseUrl}/api/renew-token</code></pre>
 
                 <h3>4. Observações Importantes</h3>
                 <ul>
@@ -312,15 +314,15 @@
 
                 <h3>5. Exemplos de Requisições com cURL</h3>
                 <h4>Enviar Mensagem:</h4>
-                <pre><code>curl -X POST http://192.168.10.32:4000/api/message \
+                <pre><code>curl -X POST ${apiBaseUrl}/api/message \
 -H "Content-Type: application/json" \
 -d '{"number": "559999999999", "title": "Olá", "message": "Olá, esta é uma mensagem de teste!"}'</code></pre>
 
                 <h4>Listar Grupos:</h4>
-                <pre><code>curl -X GET http://192.168.10.32:4000/api/groups</code></pre>
+                <pre><code>curl -X GET ${apiBaseUrl}/api/groups</code></pre>
 
                 <h4>Renovar Token:</h4>
-                <pre><code>curl -X POST http://192.168.10.32:4000/api/renew-token</code></pre>
+                <pre><code>curl -X POST ${apiBaseUrl}/api/renew-token</code></pre>
             </div>
         </div>
     </div>
@@ -344,7 +346,7 @@
             errorDiv.textContent = '';
 
             try {
-                const response = await fetch('http://192.168.10.32:4000/api/message', {
+                const response = await fetch(`${apiBaseUrl}/api/message`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -365,7 +367,7 @@
             errorDiv.textContent = ''; 
 
             try {
-                const response = await fetch('http://192.168.10.32:4000/api/groups');
+                const response = await fetch(`${apiBaseUrl}/api/groups`);
                 if (!response.ok) {
                     throw new Error('Erro ao buscar os grupos: ' + response.statusText);
                 }
@@ -396,7 +398,7 @@
 
             try {
                 // Solicitar a renovação do token
-                const response = await fetch('http://192.168.10.32:4000/api/renew-token', {
+                const response = await fetch(`${apiBaseUrl}/api/renew-token`, {
                     method: 'POST',
                 });
                 if (!response.ok) {
@@ -415,7 +417,7 @@
             const qrCodeContainer = document.getElementById('qrCodeContainer');
             const errorDiv = document.getElementById('tokenError');
             try {
-                const qrResponse = await fetch('http://192.168.10.32:4000/api/qrcode');
+                const qrResponse = await fetch('${apiBaseUrl}/api/qrcode');
                 if (!qrResponse.ok) {
                     throw new Error('QR Code não disponível');
                 }

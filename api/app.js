@@ -5,6 +5,8 @@ var venom = require("venom-bot");
 var fs = require('fs');
 var path = require('path');
 
+const config = require('./config.json');
+
 let serviceStatus = 'Initializing'; 
 let qrCode = null; // Variável para armazenar o QR Code
 let clientInstance = null; // Armazena a instância atual do cliente Venom
@@ -19,7 +21,7 @@ app.use(helmet({
       scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Permite scripts inline e unsafe-eval
       styleSrc: ["'self'", "'unsafe-inline'"],
       imgSrc: ["'self'", "data:"],
-      connectSrc: ["'self'", "http://localhost:4000"]
+      connectSrc: ["'self'", `${config.apiHost}:${config.apiPort}`] // Atualizado para usar as configurações
     }
   }
 }));
@@ -33,9 +35,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Inicia o servidor na porta 4000
-app.listen(4000, () => {
-  console.log("Servidor rodando na porta 4000");
+// Inicia o servidor na porta definida no config.json
+app.listen(config.apiPort, () => {
+  console.log(`Servidor rodando na porta ${config.apiPort}`);
 });
 
 // Endpoint para obter o QR Code
@@ -66,7 +68,7 @@ app.post("/api/renew-token", async (req, res) => {
     }
   }
 
-  const sessionPath = './session';
+  const sessionPath = config.sessionDataPath;
 
   // Remove todos os arquivos da pasta de sessão
   fs.rm(sessionPath, { recursive: true, force: true }, async (err) => {
@@ -97,7 +99,7 @@ app.post("/api/renew-token", async (req, res) => {
 function startVenom() {
   return venom.create(
     {
-      session: 'API-ZAP', // nome da sessão
+      session: config.venomSessionName, // nome da sessão do config.json
       browserArgs: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -108,14 +110,14 @@ function startVenom() {
         '--single-process',
         '--disable-gpu'
       ],
-      executablePath: '/usr/bin/google-chrome', // Caminho para o Chrome instalado
+      executablePath: config.chromeExecutablePath, // Caminho para o Chrome instalado
       disableSpins: true, // Desativar spins para melhorar a persistência de sessão
       cacheEnabled: false, // Desativar cache para evitar problemas de sessão
-      useChrome: true, // Usar o Chrome ao invés do Chromium (padrão)
+      useChrome: config.useChrome, // Usar o Chrome conforme configuração
       puppeteerOptions: {
         args: ['--no-sandbox', '--disable-setuid-sandbox'] // Argumentos do Puppeteer
       },
-      sessionDataPath: './tokens', // Caminho para armazenar os dados da sessão
+      sessionDataPath: config.sessionDataPath, // Caminho para armazenar os dados da sessão
       logQR: true
     },
     // Callback para o QR Code
@@ -158,7 +160,6 @@ function startVenom() {
   });
 }
 
-
 // Inicia o Venom Bot ao iniciar o servidor
 startVenom();
 
@@ -169,14 +170,26 @@ function start(client) {
     if (!clientInstance) {
       return res.status(503).json({ error: 'Cliente não inicializado' });
     }
-
+  
     const chatid = req.body.number;
-    const recipient = chatid.endsWith('@g.us') ? chatid : chatid + '@g.us';
-
+  
+    // Verifica se o número já inclui '@g.us' ou '@c.us'
+    let recipient;
+    if (chatid.endsWith('@g.us') || chatid.endsWith('@c.us')) {
+      recipient = chatid;
+    } else {
+      // Decide o sufixo com base no tipo de destinatário (grupo ou contato individual)
+      recipient = chatid + '@c.us'; // Use '@g.us' se for um grupo
+    }
+  
+    // Aceitar 'title' e 'message' separadamente
+    const { title, message } = req.body;
+    const fullMessage = title ? `${title}\n${message}` : message;
+  
     try {
       console.log('Enviando mensagem para:', recipient);
-      await client.sendText(recipient, req.body.message);
-      res.json(req.body);
+      await clientInstance.sendText(recipient, fullMessage);
+      res.json({ number: chatid, title, message });
     } catch (error) {
       console.error('Erro ao enviar a mensagem:', error);
       res.status(500).json({ error: 'Erro ao enviar a mensagem' });
@@ -190,7 +203,7 @@ function start(client) {
     }
 
     try {
-      const chats = await client.getAllChats();
+      const chats = await clientInstance.getAllChats(); // Usando clientInstance
       const groups = chats.filter(chat => chat.isGroup);
 
       const groupDetails = groups.map(group => ({
@@ -205,11 +218,3 @@ function start(client) {
     }
   });
 }
-
-app.get("/api/qrcode", (req, res) => {
-  if (qrCode) {
-    res.json({ qrCode });
-  } else {
-    res.status(404).json({ error: 'QR Code não disponível no momento' });
-  }
-});
